@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -27,9 +28,18 @@ public class MemberServiceImpl implements MemberService {
     @Transactional
     @Override
     public void logic() {
+
         repository1.hello();
         repository2.hello();
     }
+
+    @Transactional
+    @Override
+    public void eager() {
+        repository1.EagerTest();
+    }
+
+
 
 
 }

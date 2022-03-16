@@ -7,4 +7,6 @@ public interface MemberService {
     void saveMember(Member member);
 
     void logic();
+
+    void eager();
 }

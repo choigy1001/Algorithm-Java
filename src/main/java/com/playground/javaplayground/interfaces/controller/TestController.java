@@ -47,4 +47,9 @@ public class TestController {
         return "EmTest ok";
     }
 
+    @PostMapping("/eager")
+    public String egTest() {
+        memberService.eager();
+        return "eager ok";
+    }
 }
