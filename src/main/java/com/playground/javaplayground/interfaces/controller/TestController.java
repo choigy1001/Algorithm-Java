@@ -52,4 +52,10 @@ public class TestController {
         memberService.eager();
         return "eager ok";
     }
+
+    @PostMapping("/exception")
+    public String testException() {
+        memberService.exceptionTest();
+        return "exception Test ok";
+    }
 }

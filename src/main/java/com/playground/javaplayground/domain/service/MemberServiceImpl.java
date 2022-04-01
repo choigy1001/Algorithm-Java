@@ -8,9 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+
 
 @RequiredArgsConstructor(access = AccessLevel.PUBLIC)
 @Transactional(readOnly = true)
@@ -28,7 +26,6 @@ public class MemberServiceImpl implements MemberService {
     @Transactional
     @Override
     public void logic() {
-
         repository1.hello();
         repository2.hello();
     }
@@ -39,7 +36,15 @@ public class MemberServiceImpl implements MemberService {
         repository1.EagerTest();
     }
 
-
+    @Override
+    public void exceptionTest() {
+        try {
+            throw new RuntimeException();
+        } catch (RuntimeException e) {
+            System.out.println("e = " + e);
+            e.getMessage();
+        }
+    }
 
 
 }

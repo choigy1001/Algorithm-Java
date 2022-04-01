@@ -13,6 +13,7 @@ import javax.persistence.*;
 public class Order extends BaseEntity{
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "member_id")
     private Member member;
 
     private String productName;

@@ -9,4 +9,6 @@ public interface MemberService {
     void logic();
 
     void eager();
+
+    void exceptionTest();
 }
