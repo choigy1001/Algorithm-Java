@@ -1,6 +1,7 @@
 package com.playground.javaplayground.interfaces.controller;
 
 import com.playground.javaplayground.domain.service.MemberService;
+import com.playground.javaplayground.domain.service.StoreService;
 import com.playground.javaplayground.infrastructure.persistence.entity.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,8 @@ import javax.annotation.PostConstruct;
 public class TestController {
 
     private final MemberService memberService;
+    private final StoreService storeService;
+
 
     @PostMapping
     public String test() {
@@ -57,5 +60,11 @@ public class TestController {
     public String testException() {
         memberService.exceptionTest();
         return "exception Test ok";
+    }
+
+    @GetMapping("/food")
+    public String foodTest() {
+        storeService.storeServiceTest();
+        return "food ok";
     }
 }

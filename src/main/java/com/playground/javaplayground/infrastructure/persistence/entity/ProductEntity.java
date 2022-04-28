@@ -9,15 +9,13 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class FoodEntity {
+public class ProductEntity {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
+    @Column(name = "product_id")
     private Long id;
 
-    private String foodName;
-
-    private String foodCalorie;
+    private String productName;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
