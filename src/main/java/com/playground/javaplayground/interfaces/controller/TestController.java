@@ -1,6 +1,7 @@
 package com.playground.javaplayground.interfaces.controller;
 
 import com.playground.javaplayground.domain.service.MemberService;
+import com.playground.javaplayground.domain.service.NoMappingService;
 import com.playground.javaplayground.domain.service.StoreService;
 import com.playground.javaplayground.infrastructure.persistence.entity.Member;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ public class TestController {
 
     private final MemberService memberService;
     private final StoreService storeService;
-
+    private final NoMappingService noMappingService;
 
     @PostMapping
     public String test() {
@@ -66,5 +67,15 @@ public class TestController {
     public String foodTest() {
         storeService.storeServiceTest();
         return "food ok";
+    }
+
+    @GetMapping("/datajpa")
+    public String foodJpa() {
+        noMappingService.dataJpaTest();
+        return "data jpa ok";
+    }
+    @GetMapping("/datajpa2")
+    public String foodJpa2() {
+        return noMappingService.dataJpaTest2();
     }
 }
